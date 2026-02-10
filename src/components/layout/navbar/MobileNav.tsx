@@ -11,7 +11,7 @@ export default function MobileNav() {
             <button
                 aria-label="Toggle menu"
                 onClick={() => setOpen(!open)}
-                className="text-white"
+                className="text-white text-2xl"
             >
                 ☰
             </button>
@@ -30,6 +30,7 @@ export default function MobileNav() {
                                 </a>
                             </li>
                         ))}
+                        <li><button className="">Email Me</button></li>
                     </ul>
                 </div>
             )}
