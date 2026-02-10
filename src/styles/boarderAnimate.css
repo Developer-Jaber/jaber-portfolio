@@ -1,0 +1,45 @@
+@keyframes border-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.animated-navbar-border {
+  position: relative;
+}
+
+.animated-navbar-border::before {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 0.5px; /* border thickness */
+  border-radius: 0px;
+  filter: blur(0.3px);
+opacity: 0.8;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.7),
+    rgba(120, 200, 255, 0.9),
+    rgba(180, 120, 255, 0.8),
+    transparent
+  );
+
+  background-size: 200% 100%;
+  animation: border-move 10s linear infinite;
+
+  /* show only border */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+}
